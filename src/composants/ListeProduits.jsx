@@ -3,12 +3,13 @@ import Produit from "./Produit";
 import { useEffect, useState } from 'react';
 /******* Ex#3 - Étape D ********************************/ 
 // Importer l'objet bd du fichier firebase.js
-
+import { bd } from '../data/firebase';
 
 export default function ListeProduits(props) {
   /******* Ex#3 - Étape E ********************************/ 
   // Créer un "état" React pour les produits (utiliser useState)
-  
+  const etatProduit = useState(null);
+  const [produit, setProduit] = etatProduit;
     
   useEffect(() => {
     async function getProduits() {
@@ -20,7 +21,15 @@ export default function ListeProduits(props) {
       // [Suggestion : remarquez que la fonction getProduits() est marquée 'async'. Lorsque vous appelez la méthode Firestore qui retourne les produits, cette fonction 
       // est une Promesse, vous pouvez simplement utiliser la syntax 'await' pour attendre le résultat avant de remplir le tableau tabProduits 
       // (visionnez la capsule au sujet du code asynchrone en JavaScript)]
-
+      bd.collection("ex3-produits").onSnapshot(
+        snapshot => snapshot.docChanges().forEach(
+          changement => {
+            if(changement.type === "added"){
+              console.log(changement.doc.data());
+            }
+          }
+        )
+      );
       
       /******* Ex#3 - Étape G ********************************/ 
       // Modifier l'état des produits (initialisé ci-dessus avec useState) en utilisant le mutateur et le tableau tabProduits

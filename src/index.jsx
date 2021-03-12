@@ -6,7 +6,7 @@ import Appli from './composants/Appli';
 
 /******* Ex#3 - Étape I ********************************/ 
 // Ajuster la valeur de la constante suivante avec le nom exact de votre dépôt GitHub de solution
-const nomDepotGitHub = "pvt-ex3-firestore";
+const nomDepotGitHub = "ex3-firestore";
 
 // Ne rien modifier aux lignes suivantes 
 const baseName = (window.location.href.search(/github\.io/) !== -1) ? `/${nomDepotGitHub}` : "";
