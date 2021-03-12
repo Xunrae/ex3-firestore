@@ -22,4 +22,5 @@ if(!fbAppli.apps.length) {
 // Initialiser Firestore
 /******* Ex#3 - Étape C ********************************/ 
 // Exporter (par défaut) la référence à "bd" pour pouvoir l'utiliser dans le composant ListeProduits
-export const bd = fbAppli.firestore();
+const bd = fbAppli.firestore();
+export default bd;

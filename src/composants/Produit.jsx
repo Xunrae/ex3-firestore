@@ -28,13 +28,13 @@ export default function Produit({etatPanier, id, nom, prix}) {
           : [0, "Ajouter au panier", ""];
   
   return(
-    <li className="Produit">
+    <>
       <img src={'images-produits/' + id + '.webp'} alt=""/>
       <div className="info">
         <p className="nom">{nom}</p>
         <p className="prix">{prix}</p>
       </div>
       <BtnAjoutPanier onClick={ajouterPanier} qte={qte} texte={texte} classeCss={classeCss} />
-    </li>
+    </>
   );
 }
